@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title id="pageTitle">تفاصيل الخدمة | مؤسسة سواتر المدينة</title>
+<meta name="description" id="pageDesc" content="تفاصيل خدماتنا في المدينة المنورة - مظلات، سواتر، هناجر، حدادة، عشب، برجولات، شبك، أسقف متحركة." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#1A1A2E;--a:#C9A84C;--s:#4A6FA5;--g:#2D5016;--l:#F5F0E8;--m:#6B7280;--e:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal',sans-serif;font-size:1.05rem;line-height:1.8;color:var(--p);background:var(--l)}
+h1,h2,h3,h4{font-family:'Noto Kufi Arabic',sans-serif;font-weight:900;line-height:1.3;color:var(--p)}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(26,26,46,.92);backdrop-filter:blur(14px);padding:16px 0;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:'Noto Kufi Arabic';font-weight:900;font-size:1.25rem}
+.logo-mark{width:38px;height:38px;background:linear-gradient(135deg,var(--s),var(--a));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;transform:rotate(45deg)}
+.logo-mark svg{transform:rotate(-45deg)}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links a{color:#fff;padding:10px 14px;border-radius:8px;font-weight:500;transition:.3s;font-size:.98rem}
+.nav-links a:hover{color:var(--a)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:50px;font-weight:500;cursor:pointer;border:none;transition:.3s;font-size:.98rem;font-family:'Tajawal'}
+.btn-primary{background:var(--a);color:var(--p)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,168,76,.4)}
+.btn-outline{background:transparent;color:#fff;border:2px solid #fff}
+.btn-outline:hover{background:#fff;color:var(--p)}
+.hamburger{display:none;width:40px;height:40px;background:transparent;border:none;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:22px;height:2px;background:#fff}
+
+/* Hero */
+.svc-hero{padding:160px 0 100px;background:linear-gradient(135deg,var(--p) 0%,#252544 50%,#1f3a5f 100%);color:#fff;position:relative;overflow:hidden}
+.svc-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 70% 30%,rgba(201,168,76,.18),transparent 50%),radial-gradient(circle at 20% 70%,rgba(74,111,165,.2),transparent 50%)}
+.svc-hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(135deg,transparent 49.5%,rgba(255,255,255,.04) 49.5%,rgba(255,255,255,.04) 50.5%,transparent 50.5%);background-size:80px 80px;opacity:.5}
+.svc-hero-content{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center}
+.crumbs{color:rgba(255,255,255,.6);font-size:.92rem;margin-bottom:18px}
+.crumbs a{color:rgba(255,255,255,.6)}.crumbs a:hover{color:var(--a)}
+.svc-hero h1{color:#fff;font-size:clamp(2.4rem,5vw,4rem);margin-bottom:18px}
+.svc-hero h1 span{color:var(--a)}
+.svc-hero .lead{font-size:1.2rem;color:rgba(255,255,255,.82);margin-bottom:30px;max-width:600px;font-weight:300}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.svc-illust{aspect-ratio:1;background:linear-gradient(135deg,var(--a),var(--s));border-radius:30px;display:flex;align-items:center;justify-content:center;color:#fff;position:relative;box-shadow:0 30px 80px -20px rgba(201,168,76,.4)}
+.svc-illust::before{content:"";position:absolute;inset:-20px;border:2px solid rgba(201,168,76,.3);border-radius:36px;transform:rotate(-4deg)}
+.svc-illust svg{width:55%;height:55%;color:#fff;opacity:.95}
+
+/* Sections */
+section{padding:90px 0}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 56px}
+.sec-head h2{font-size:clamp(1.9rem,3.5vw,2.8rem);margin-bottom:14px;position:relative;display:inline-block}
+.sec-head h2::after{content:"";position:absolute;bottom:-10px;right:50%;transform:translateX(50%);width:60px;height:4px;background:var(--a);border-radius:2px}
+.sec-head p{color:var(--m);font-size:1.1rem;margin-top:18px}
+
+/* Services list */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feat{background:#fff;border-radius:18px;padding:28px;border:1px solid rgba(0,0,0,.04);transition:.4s var(--e);position:relative;overflow:hidden}
+.feat::before{content:"";position:absolute;top:0;right:0;width:60px;height:60px;background:radial-gradient(circle at top right,rgba(201,168,76,.12),transparent 70%)}
+.feat:hover{transform:translateY(-6px);box-shadow:0 24px 50px -20px rgba(26,26,46,.18);border-color:var(--a)}
+.feat-ic{width:54px;height:54px;background:var(--p);color:var(--a);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:.3s}
+.feat:hover .feat-ic{background:var(--a);color:var(--p);transform:rotate(-6deg)}
+.feat h3{font-size:1.2rem;margin-bottom:8px}
+.feat p{color:var(--m);font-size:.98rem}
+
+/* Warranty */
+.warranty{background:linear-gradient(135deg,var(--p),#0d0d1a);color:#fff;border-radius:30px;padding:60px;display:grid;grid-template-columns:1fr 1.5fr;gap:50px;align-items:center;position:relative;overflow:hidden}
+.warranty::before{content:"10";position:absolute;font-family:'Noto Kufi Arabic';font-size:25rem;font-weight:900;color:rgba(201,168,76,.05);top:-80px;left:-30px;line-height:1;pointer-events:none}
+.warranty-badge{width:180px;height:180px;margin:0 auto;background:linear-gradient(135deg,var(--a),#e5c76b);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--p);text-align:center;box-shadow:0 20px 50px -10px rgba(201,168,76,.5);position:relative}
+.warranty-badge::before{content:"";position:absolute;inset:-12px;border:2px dashed rgba(201,168,76,.5);border-radius:50%;animation:spin 30s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.warranty-badge .num{font-family:'Noto Kufi Arabic';font-size:3.5rem;font-weight:900;line-height:1}
+.warranty-badge .lbl{font-size:.9rem;margin-top:4px;font-weight:700}
+.warranty h2{color:#fff;font-size:2.2rem;margin-bottom:16px;position:relative}
+.warranty h2 span{color:var(--a)}
+.warranty p{color:rgba(255,255,255,.8);margin-bottom:24px;position:relative;font-size:1.08rem}
+.war-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
+.war-list li{display:flex;align-items:start;gap:10px;color:rgba(255,255,255,.9);font-size:.98rem}
+.war-list svg{color:var(--a);flex-shrink:0;margin-top:3px}
+
+/* Gallery / creativity */
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gal-card{aspect-ratio:4/3;border-radius:18px;position:relative;overflow:hidden;cursor:pointer;transition:.4s var(--e);background:linear-gradient(135deg,var(--s),var(--p));display:flex;align-items:end;padding:24px;color:#fff}
+.gal-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.7))}
+.gal-card::after{content:"";position:absolute;inset:0;background-image:linear-gradient(135deg,transparent 49.5%,rgba(255,255,255,.08) 49.5%,rgba(255,255,255,.08) 50.5%,transparent 50.5%);background-size:40px 40px;opacity:.6}
+.gal-card svg{position:absolute;top:30px;right:30px;color:rgba(255,255,255,.4);width:60px;height:60px;transition:.4s}
+.gal-card:hover{transform:translateY(-6px);box-shadow:0 28px 60px -20px rgba(0,0,0,.4)}
+.gal-card:hover svg{color:var(--a);transform:rotate(-10deg) scale(1.1)}
+.gal-card.alt{background:linear-gradient(135deg,var(--g),var(--s))}
+.gal-card.alt2{background:linear-gradient(135deg,var(--a),#8B6914)}
+.gal-card.alt3{background:linear-gradient(135deg,var(--p),var(--a))}
+.gal-card.alt4{background:linear-gradient(135deg,#8B6914,var(--p))}
+.gal-card.alt5{background:linear-gradient(135deg,var(--s),var(--g))}
+.gal-card h4{position:relative;z-index:2;font-size:1.15rem;color:#fff}
+.gal-card span{position:relative;z-index:2;color:rgba(255,255,255,.8);font-size:.9rem;display:block;margin-top:4px}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--a) 0%,#b8973f 100%);color:var(--p);text-align:center;padding:70px 30px;border-radius:30px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;top:-100px;left:-100px;width:300px;height:300px;background:rgba(255,255,255,.1);border-radius:50%}
+.cta::after{content:"";position:absolute;bottom:-150px;right:-100px;width:400px;height:400px;background:rgba(0,0,0,.05);border-radius:50%}
+.cta h2{font-size:2.2rem;margin-bottom:12px;position:relative}
+.cta p{margin-bottom:28px;font-size:1.15rem;position:relative}
+.cta .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta .btn-dark{background:var(--p);color:#fff}
+.cta .btn-dark:hover{background:#000;transform:translateY(-2px)}
+.cta .btn-wa{background:#25D366;color:#fff}
+.cta .btn-wa:hover{background:#128C7E;transform:translateY(-2px)}
+
+/* Floating */
+.floating{position:fixed;left:24px;bottom:24px;display:flex;flex-direction:column;gap:14px;z-index:90}
+.float-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,.25);transition:.3s;position:relative}
+.float-btn:hover{transform:scale(1.1)}
+.float-btn.wa{background:#25D366}
+.float-btn.wa::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;animation:pulse 2s infinite;z-index:-1}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.7);opacity:0}}
+.float-btn.call{background:var(--s)}
+
+/* Footer */
+.footer{background:#0d0d1a;color:#fff;padding:50px 0 24px;text-align:center}
+.footer p{color:rgba(255,255,255,.6);margin:8px 0}
+.copy{padding-top:20px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);font-size:.88rem;margin-top:20px}
+
+@media (max-width:1024px){
+  .svc-hero-content{grid-template-columns:1fr;gap:40px}
+  .svc-illust{max-width:340px;margin:0 auto}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .warranty{grid-template-columns:1fr;padding:40px 28px;text-align:center}
+  .warranty h2{font-size:1.7rem}
+  .war-list{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:768px){
+  .nav-links,.nav .btn{display:none}
+  .hamburger{display:flex;color:#fff}
+  section{padding:60px 0}
+  .feat-grid,.gal-grid{grid-template-columns:1fr}
+  .cta{padding:50px 20px}
+  .cta h2{font-size:1.6rem}
+  .floating{left:16px;bottom:16px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg></span>
+      سواتر المدينة
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="index.html#services">خدماتنا</a></li>
+      <li><a href="index.html#about">من نحن</a></li>
+      <li><a href="articles.html">المقالات</a></li>
+      <li><a href="index.html#contact">اتصل بنا</a></li>
+    </ul>
+    <a href="index.html#quote" class="btn btn-primary">طلب عرض سعر</a>
+    <button class="hamburger" aria-label="القائمة"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="svc-hero">
+  <div class="container svc-hero-content">
+    <div>
+      <div class="crumbs"><a href="index.html">الرئيسية</a> ← <a href="index.html#services">خدماتنا</a> ← <span id="crumbName">...</span></div>
+      <h1 id="svcTitle">...</h1>
+      <p class="lead" id="svcLead"></p>
+      <div class="hero-ctas">
+        <a href="index.html#quote" class="btn btn-primary">احصل على عرض سعر</a>
+        <a href="https://wa.me/966599399118" target="_blank" rel="noopener" class="btn btn-outline">تواصل واتساب</a>
+      </div>
+    </div>
+    <div class="svc-illust" id="svcIllust"></div>
+  </div>
+</header>
+
+<!-- What we offer -->
+<section>
+  <div class="container">
+    <div class="sec-head">
+      <h2>خدماتنا في <span id="catName"></span></h2>
+      <p>نقدم مجموعة متكاملة من الحلول لتلبية احتياجاتك بأعلى جودة وأفضل سعر.</p>
+    </div>
+    <div class="feat-grid" id="featGrid"></div>
+  </div>
+</section>
+
+<!-- Warranty -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="warranty">
+      <div>
+        <div class="warranty-badge">
+          <span class="num">10</span>
+          <span class="lbl">سنوات ضمان</span>
+        </div>
+      </div>
+      <div>
+        <h2>ضمان حقيقي <span>يمتد 10 سنوات</span></h2>
+        <p>نقف خلف كل مشروع ننفّذه — ضمان شامل على الهيكل والتركيب يمنحك راحة بال كاملة على المدى الطويل.</p>
+        <ul class="war-list">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ضمان على متانة الهيكل الحديدي</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ضمان على عدم الصدأ والتآكل</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ضمان على ثبات اللحامات والربط</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>صيانة دورية مجانية أول سنة</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>استجابة سريعة لأي ملاحظة</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>وثيقة ضمان رسمية مع كل مشروع</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Creativity / works -->
+<section>
+  <div class="container">
+    <div class="sec-head">
+      <h2>إبداعاتنا</h2>
+      <p>نماذج من مشاريعنا المنفّذة بتصاميم عصرية ولمسات احترافية تليق بمكانك.</p>
+    </div>
+    <div class="gal-grid" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="cta">
+      <h2>جاهز للبدء في مشروعك؟</h2>
+      <p>تواصل معنا الآن واحصل على استشارة وعرض سعر مجاني خلال 24 ساعة.</p>
+      <div class="btn-row">
+        <a href="tel:+966599399118" class="btn btn-dark">📞 اتصل بنا</a>
+        <a href="https://wa.me/966599399118" target="_blank" rel="noopener" class="btn btn-wa">💬 واتساب</a>
+        <a href="index.html#quote" class="btn" style="background:#fff;color:var(--p)">طلب عرض سعر</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="floating">
+  <a href="https://wa.me/966599399118" target="_blank" rel="noopener" class="float-btn wa" aria-label="واتساب">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0c-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1s0-.5.1-.6c.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.7-1-2.3-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.4.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.2-.3-.3-.6-.5z M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.3c1.4.7 3 1.1 4.7 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+  </a>
+  <a href="tel:+966599399118" class="float-btn call" aria-label="اتصل">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8 9.6a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2.3z"/></svg>
+  </a>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p><strong>مؤسسة سواتر المدينة</strong> — المدينة المنورة، المملكة العربية السعودية</p>
+    <p><a href="tel:+966599399118" style="color:var(--a)">+966 59 939 9118</a></p>
+    <div class="copy">© 2025 مؤسسة سواتر المدينة — جميع الحقوق محفوظة</div>
+  </div>
+</footer>
+
+<script>
+const ICONS={
+  mazallat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7 2 2 7 2 12h20c0-5-5-10-10-10z"/><path d="M12 12v9M9 21h6"/></svg>',
+  sawater:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="2.5" height="18"/><rect x="10.75" y="3" width="2.5" height="18"/><rect x="17.5" y="3" width="2.5" height="18"/></svg>',
+  hangars:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21V10l10-6 10 6v11M2 21h20"/><rect x="9" y="14" width="6" height="7"/></svg>',
+  hidada:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l-4 9h5l-3 7 8-11h-5l3-5z"/></svg>',
+  grass:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22c0-8 4-14 8-14M12 22c0-8 4-14 8-14M8 22c0-6 2-10 4-10M16 22c0-6-2-10-4-10M2 22h20"/></svg>',
+  pergola:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="2"/><path d="M5 8v13M9 8v13M15 8v13M19 8v13"/></svg>',
+  shabak:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>',
+  roof:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h20M2 12h14M2 16h20"/><path d="M18 12l4 4-4 4"/></svg>'
+};
+
+const SERVICES={
+  mazallat:{
+    title:'المظلات',
+    cat:'المظلات',
+    lead:'مظلات حديدية وقماشية بأشكال عصرية، مقاومة لأشعة الشمس والأمطار، نصمّمها لتدوم سنوات بمظهر يخطف الأنظار.',
+    feats:[
+      {t:'مظلات سيارات',d:'حماية كاملة لسيارتك من الشمس والأمطار، مقاسات تناسب كل المساحات.'},
+      {t:'مظلات PVC',d:'الأكثر شعبية في السعودية، خفيفة الوزن ومقاومة للحرارة العالية.'},
+      {t:'مظلات قماشية',d:'تصاميم عصرية بألوان متعددة، مناسبة للحدائق والمسابح.'},
+      {t:'مظلات هرمية',d:'تصميم هرمي أنيق يضفي لمسة جمالية على المداخل والساحات.'},
+      {t:'مظلات مدارس',d:'مظلات كبيرة الحجم بمواصفات الأمان للمدارس وساحات اللعب.'},
+      {t:'مظلات مساجد',d:'مظلات بتصميم يحترم القيمة الجمالية والروحانية للمساجد.'}
+    ]
+  },
+  sawater:{
+    title:'السواتر',
+    cat:'السواتر',
+    lead:'سواتر بمختلف الخامات لتوفير الخصوصية الكاملة لمنزلك أو استراحتك، بتصاميم تجمع بين الأناقة والمتانة.',
+    feats:[
+      {t:'سواتر حديد مزخرف',d:'سواتر بزخارف فنية متعددة، مطلية بدهانات تقاوم الصدأ.'},
+      {t:'سواتر خشب',d:'مظهر طبيعي راقٍ مع معالجة ضد العوامل الجوية والحشرات.'},
+      {t:'سواتر PVC',d:'بلاستيكية اقتصادية لا تحتاج صيانة، بألوان متعددة.'},
+      {t:'سواتر قماش',d:'حل سريع وعملي للخصوصية المؤقتة بأسعار مناسبة.'},
+      {t:'سواتر استراحات',d:'حلول متكاملة لتسوير الاستراحات بارتفاعات حسب الطلب.'},
+      {t:'سواتر فلل',d:'تصاميم فاخرة تتناسب مع مظهر الفلل والقصور.'}
+    ]
+  },
+  hangars:{
+    title:'الهناجر',
+    cat:'الهناجر',
+    lead:'تصميم وتنفيذ هناجر صناعية وتجارية بمواصفات هندسية دقيقة ومقاسات حسب الطلب.',
+    feats:[
+      {t:'هناجر صناعية',d:'هناجر للمصانع والورش بمساحات واسعة ومقاومة للأحمال الثقيلة.'},
+      {t:'هناجر تجارية',d:'هناجر للمعارض والمستودعات بتصاميم عملية وجذابة.'},
+      {t:'هناجر زراعية',d:'حماية المعدات والمنتجات الزراعية من العوامل الجوية.'},
+      {t:'هناجر مواقف',d:'مواقف سيارات للشركات والمجمعات بمساحات كبيرة.'},
+      {t:'هناجر مستودعات',d:'مستودعات بأنظمة تهوية وإضاءة طبيعية محسّنة.'},
+      {t:'صيانة وترميم',d:'صيانة الهناجر القديمة وإعادتها لجاهزيتها الكاملة.'}
+    ]
+  },
+  hidada:{
+    title:'الحدادة العامة',
+    cat:'الحدادة',
+    lead:'جميع أعمال الحديد والحدادة الفنية: أبواب، شبابيك، دروابز، وأي تصميم حسب الرغبة.',
+    feats:[
+      {t:'أبواب حديد',d:'أبواب رئيسية بتصاميم فاخرة وحماية عالية للمنازل والمحلات.'},
+      {t:'دروابز ودرابزينات',d:'دروابز للسلالم والشرفات بتصاميم كلاسيكية وحديثة.'},
+      {t:'شبابيك حماية',d:'شبابيك أمان بتصاميم متنوعة دون التأثير على المظهر.'},
+      {t:'أبواب جراج',d:'أبواب جراجات يدوية وأوتوماتيكية بأحجام مختلفة.'},
+      {t:'حدادة فنية',d:'تصاميم زخرفية فنية للأبواب والبوابات والأسوار.'},
+      {t:'سلالم حديد',d:'سلالم داخلية وخارجية بتصاميم آمنة وأنيقة.'}
+    ]
+  },
+  grass:{
+    title:'العشب الطبيعي والصناعي',
+    cat:'العشب',
+    lead:'تنسيق وتركيب العشب الطبيعي والصناعي للحدائق والملاعب والشركات بأعلى جودة.',
+    feats:[
+      {t:'عشب صناعي للحدائق',d:'عشب أخضر طوال السنة بدون ري أو صيانة، مظهر طبيعي 100%.'},
+      {t:'عشب طبيعي',d:'تركيب وتجهيز التربة وزراعة العشب الطبيعي مع نظام ري.'},
+      {t:'عشب ملاعب',d:'عشب رياضي بمواصفات الملاعب المعتمدة ومقاوم للاحتكاك.'},
+      {t:'تنسيق حدائق',d:'تصميم وتنسيق متكامل للحدائق مع النباتات والإضاءة.'},
+      {t:'صيانة العشب',d:'خدمات صيانة دورية للعشب الطبيعي وغسيل العشب الصناعي.'},
+      {t:'عشب أسطح',d:'تركيب العشب على الأسطح والشرفات لإطلالة خضراء جميلة.'}
+    ]
+  },
+  pergola:{
+    title:'البرجولات',
+    cat:'البرجولات',
+    lead:'برجولات خشبية وحديدية بتصاميم فاخرة تحوّل حديقتك إلى مكان مميز للاسترخاء.',
+    feats:[
+      {t:'برجولات خشبية',d:'خشب طبيعي معالج بأشكال كلاسيكية تضفي دفئاً على المكان.'},
+      {t:'برجولات حديدية',d:'برجولات حديد بدهانات مقاومة للصدأ وأشكال عصرية.'},
+      {t:'برجولات مختلطة',d:'مزيج بين الحديد والخشب لإطلالة فاخرة وعصرية.'},
+      {t:'برجولات بأسقف متحركة',d:'برجولات ذكية بأسقف يمكن فتحها وإغلاقها حسب الطقس.'},
+      {t:'برجولات مسابح',d:'تصاميم خاصة لمناطق المسابح ومقاومة للرطوبة.'},
+      {t:'برجولات مطاعم',d:'برجولات كبيرة للمطاعم والكافيهات بتصاميم جذابة للعملاء.'}
+    ]
+  },
+  shabak:{
+    title:'شبك الأسلاك',
+    cat:'الشبك',
+    lead:'سياجات وشبك أسلاك للمزارع والاستراحات والمشاريع بمختلف الأنواع والأحجام.',
+    feats:[
+      {t:'شبك مزارع',d:'شبك بمقاسات كبيرة لتسوير المزارع والأراضي الزراعية.'},
+      {t:'شبك ملاعب',d:'شبك بارتفاعات عالية للملاعب الرياضية ومنع تسرب الكرات.'},
+      {t:'شبك حماية',d:'شبك حماية للنوافذ والأسطح والمناور.'},
+      {t:'شبك مربعات',d:'شبك بمقاسات مربعة متعددة حسب الاستخدام.'},
+      {t:'سياج شائك',d:'سياج أمني للأماكن الحساسة والمناطق الخاصة.'},
+      {t:'شبك أقفاص',d:'شبك لبناء أقفاص الحيوانات والطيور بأحجام مختلفة.'}
+    ]
+  },
+  roof:{
+    title:'الأسقف المتحركة',
+    cat:'الأسقف المتحركة',
+    lead:'أسقف ذكية قابلة للفتح والإغلاق كهربائياً، الحل الأمثل للمطاعم والاستراحات.',
+    feats:[
+      {t:'أسقف كهربائية',d:'تحكم كامل بضغطة زر، فتح وإغلاق سلس وآمن.'},
+      {t:'أسقف بريموت',d:'تحكم لاسلكي عن بعد، مع إمكانية الربط بتطبيق الجوال.'},
+      {t:'أسقف مظلات هرمية',d:'تصاميم هرمية متحركة لإطلالة فاخرة ومميزة.'},
+      {t:'أسقف للمطاعم',d:'حلول مرنة للمطاعم تستجيب لتغيرات الطقس فوراً.'},
+      {t:'أسقف للمسابح',d:'أسقف خاصة بمناطق المسابح ومقاومة للرطوبة.'},
+      {t:'صيانة المحركات',d:'صيانة دورية للمحركات وأنظمة التحكم لضمان الأداء.'}
+    ]
+  }
+};
+
+const GALLERY=[
+  {t:'مشروع فيلا بالعقيق',d:'مظلة مدخل بتصميم هرمي'},
+  {t:'استراحة شرق المدينة',d:'سواتر خشب بارتفاع 3 أمتار'},
+  {t:'مدرسة أهلية',d:'مظلات ساحة بمساحة 800م²'},
+  {t:'مسجد الحي',d:'مظلة خارجية تستوعب 200 مصلي'},
+  {t:'مجمع تجاري',d:'مواقف سيارات مظللة بالكامل'},
+  {t:'فيلا قباء',d:'برجولا خشبية مع عشب صناعي'}
+];
+
+const params=new URLSearchParams(location.search);
+const key=params.get('s')||'mazallat';
+const s=SERVICES[key]||SERVICES.mazallat;
+
+document.getElementById('pageTitle').textContent=s.title+' | مؤسسة سواتر المدينة';
+document.getElementById('pageDesc').setAttribute('content',s.lead);
+document.getElementById('crumbName').textContent=s.title;
+document.getElementById('svcTitle').innerHTML=`<span>${s.title}</span>`;
+document.getElementById('svcLead').textContent=s.lead;
+document.getElementById('catName').textContent=s.cat;
+document.getElementById('svcIllust').innerHTML=ICONS[key]||ICONS.mazallat;
+
+document.getElementById('featGrid').innerHTML=s.feats.map(f=>`
+  <div class="feat">
+    <div class="feat-ic">${ICONS[key]||ICONS.mazallat}</div>
+    <h3>${f.t}</h3>
+    <p>${f.d}</p>
+  </div>
+`).join('');
+
+const altClasses=['','alt','alt2','alt3','alt4','alt5'];
+document.getElementById('galGrid').innerHTML=GALLERY.map((g,i)=>`
+  <div class="gal-card ${altClasses[i%6]}">
+    ${ICONS[key]||ICONS.mazallat}
+    <div>
+      <h4>${g.t}</h4>
+      <span>${g.d}</span>
+    </div>
+  </div>
+`).join('');
+</script>
+</body>
+</html>

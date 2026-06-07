@@ -111,7 +111,39 @@ section{padding:120px 0;position:relative}
 .service-icon{width:60px;height:60px;display:flex;align-items:center;justify-content:center;background:var(--color-primary);color:var(--color-accent);border-radius:14px;margin-bottom:24px;transition:.4s}
 .service-card:hover .service-icon{background:var(--color-accent);color:var(--color-primary);transform:rotate(-8deg) scale(1.08)}
 .service-card h3{font-size:1.4rem;margin-bottom:12px}
-.service-card p{color:var(--color-muted);font-size:1rem;line-height:1.7}
+.service-card p{color:var(--color-muted);font-size:1rem;line-height:1.7;margin-bottom:16px}
+.service-card{text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.card-cta{margin-top:auto;color:var(--color-primary);font-weight:700;font-size:.95rem;display:inline-flex;align-items:center;gap:4px;transition:.3s}
+.service-card:hover .card-cta{color:var(--color-accent);gap:8px}
+
+/* Reviews */
+#reviews{background:#fff;padding:120px 0}
+.reviews-head{text-align:center;max-width:680px;margin:0 auto 60px}
+.reviews-head .section-title::after{right:50%;transform:translateX(50%)}
+.reviews-stats{display:flex;justify-content:center;gap:50px;margin-top:30px;flex-wrap:wrap}
+.rev-stat{text-align:center}
+.rev-stat .big{font-family:'Noto Kufi Arabic';font-size:2.4rem;font-weight:900;color:var(--color-accent);line-height:1}
+.rev-stat .lbl{color:var(--color-muted);font-size:.92rem;margin-top:4px}
+.rev-stars-big{display:flex;justify-content:center;gap:4px;margin-top:14px}
+.rev-stars-big svg{width:24px;height:24px;color:var(--color-accent);fill:var(--color-accent)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.review{background:var(--color-light);border-radius:20px;padding:30px;position:relative;transition:.4s var(--ease);border:1px solid rgba(0,0,0,.04)}
+.review:hover{transform:translateY(-6px);box-shadow:0 24px 50px -20px rgba(26,26,46,.18);background:#fff;border-color:var(--color-accent)}
+.review::before{content:"\201D";position:absolute;top:18px;left:24px;font-family:Georgia,serif;font-size:5rem;color:var(--color-accent);opacity:.2;line-height:1}
+.rev-stars{display:flex;gap:3px;margin-bottom:14px}
+.rev-stars svg{width:18px;height:18px;color:var(--color-accent);fill:var(--color-accent)}
+.rev-text{color:#3a3a4a;font-size:1rem;line-height:1.8;margin-bottom:20px;position:relative}
+.rev-meta{display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid rgba(0,0,0,.06)}
+.rev-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--color-steel),var(--color-primary));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Noto Kufi Arabic';font-weight:900;font-size:1.2rem;flex-shrink:0}
+.rev-avatar.a2{background:linear-gradient(135deg,var(--color-accent),var(--color-earth))}
+.rev-avatar.a3{background:linear-gradient(135deg,var(--color-green),var(--color-steel))}
+.rev-avatar.a4{background:linear-gradient(135deg,var(--color-earth),var(--color-primary))}
+.rev-avatar.a5{background:linear-gradient(135deg,var(--color-primary),var(--color-accent))}
+.rev-avatar.a6{background:linear-gradient(135deg,var(--color-steel),var(--color-green))}
+.rev-name{font-weight:700;color:var(--color-primary);font-size:1rem}
+.rev-role{color:var(--color-muted);font-size:.85rem}
+@media (max-width:1024px){.reviews-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:768px){.reviews-grid{grid-template-columns:1fr}.reviews-stats{gap:24px}#reviews{padding:70px 0}}
 
 /* Why us */
 .why-us{background:var(--color-primary);color:#fff}
@@ -304,69 +336,77 @@ section{padding:120px 0;position:relative}
     <p class="section-sub reveal">حلول متكاملة في الحدادة والتظليل والتنسيق الخارجي، نقدمها بأعلى معايير الجودة وأفضل الأسعار في المدينة المنورة.</p>
     <div class="services-grid stagger">
 
-      <div class="service-card">
+      <a class="service-card" href="service.html?s=mazallat">
         <div class="service-icon">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7 2 2 7 2 12h20c0-5-5-10-10-10z"/><path d="M12 12v9"/><path d="M9 21h6"/></svg>
         </div>
         <h3>المظلات</h3>
         <p>مظلات حديدية وقماشية بتصاميم عصرية، مقاومة للحرارة والعوامل الجوية في المملكة.</p>
-      </div>
+        <span class="card-cta">اعرف المزيد ←</span>
+      </a>
 
-      <div class="service-card">
+      <a class="service-card" href="service.html?s=sawater">
         <div class="service-icon">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="2.5" height="18"/><rect x="10.75" y="3" width="2.5" height="18"/><rect x="17.5" y="3" width="2.5" height="18"/></svg>
         </div>
         <h3>السواتر</h3>
         <p>سواتر خشب وحديد وبلاستيك لتوفير الخصوصية والحماية بمظهر جمالي راقٍ.</p>
-      </div>
+        <span class="card-cta">اعرف المزيد ←</span>
+      </a>
 
-      <div class="service-card">
+      <a class="service-card" href="service.html?s=hangars">
         <div class="service-icon">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21V10l10-6 10 6v11"/><path d="M2 21h20"/><rect x="9" y="14" width="6" height="7"/></svg>
         </div>
         <h3>الهناجر</h3>
         <p>تصميم وتركيب هناجر صناعية وتجارية بمواصفات قياسية ومقاسات حسب الطلب.</p>
-      </div>
+        <span class="card-cta">اعرف المزيد ←</span>
+      </a>
 
-      <div class="service-card">
+      <a class="service-card" href="service.html?s=hidada">
         <div class="service-icon">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l-4 9h5l-3 7 8-11h-5l3-5z"/></svg>
         </div>
         <h3>الحدادة العامة</h3>
         <p>جميع أعمال الحديد: أبواب، شبابيك، دروابز، مظلات حسب التصميم المطلوب.</p>
-      </div>
+        <span class="card-cta">اعرف المزيد ←</span>
+      </a>
 
-      <div class="service-card">
+      <a class="service-card" href="service.html?s=grass">
         <div class="service-icon">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22c0-8 4-14 8-14M12 22c0-8 4-14 8-14M8 22c0-6 2-10 4-10M16 22c0-6-2-10-4-10M2 22h20"/></svg>
         </div>
         <h3>العشب الطبيعي والصناعي</h3>
         <p>تنسيق وتركيب العشب الطبيعي والصناعي للحدائق والملاعب بأعلى جودة.</p>
-      </div>
+        <span class="card-cta">اعرف المزيد ←</span>
+      </a>
 
-      <div class="service-card">
+      <a class="service-card" href="service.html?s=pergola">
         <div class="service-icon">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="2"/><path d="M5 8v13M9 8v13M15 8v13M19 8v13"/></svg>
         </div>
         <h3>البرجولات</h3>
         <p>برجولات خشبية وحديدية بتصاميم فاخرة تضفي لمسة جمالية على حديقتك.</p>
-      </div>
+        <span class="card-cta">اعرف المزيد ←</span>
+      </a>
 
-      <div class="service-card">
+      <a class="service-card" href="service.html?s=shabak">
         <div class="service-icon">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
         </div>
         <h3>شبك الأسلاك</h3>
         <p>سياجات وشبك أسلاك للمزارع والاستراحات والمشاريع بمختلف الأنواع والأحجام.</p>
-      </div>
+        <span class="card-cta">اعرف المزيد ←</span>
+      </a>
 
-      <div class="service-card">
+      <a class="service-card" href="service.html?s=roof">
         <div class="service-icon">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h20M2 12h14M2 16h20"/><path d="M18 12l4 4-4 4"/></svg>
         </div>
         <h3>الأسقف المتحركة</h3>
         <p>أسقف قابلة للفتح والإغلاق بمحركات كهربائية، مثالية للمطاعم والاستراحات.</p>
-      </div>
+        <span class="card-cta">اعرف المزيد ←</span>
+      </a>
 
     </div>
   </div>
@@ -424,6 +464,121 @@ section{padding:120px 0;position:relative}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="reviews">
+  <div class="container">
+    <div class="reviews-head">
+      <h2 class="section-title reveal">آراء عملائنا</h2>
+      <p class="section-sub reveal" style="margin-right:auto;margin-left:auto">ثقة عملائنا هي أكبر إنجاز لنا — هذه آراء حقيقية من عملاء سعدنا بخدمتهم.</p>
+      <div class="rev-stars-big reveal">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="reviews-stats reveal">
+        <div class="rev-stat"><div class="big">5.0</div><div class="lbl">متوسط التقييم</div></div>
+        <div class="rev-stat"><div class="big">+450</div><div class="lbl">تقييم إيجابي</div></div>
+        <div class="rev-stat"><div class="big">98%</div><div class="lbl">عملاء يوصون بنا</div></div>
+      </div>
+    </div>
+    <div class="reviews-grid stagger">
+
+      <div class="review">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="rev-text">صراحة فاجأوني بسرعة التنفيذ ودقة العمل. ركبوا لي مظلة سيارة بحي قباء، التشطيب نظيف والحديد ممتاز. أنصح فيهم بدون تردد.</p>
+        <div class="rev-meta">
+          <div class="rev-avatar">أ</div>
+          <div><div class="rev-name">أحمد العتيبي</div><div class="rev-role">عميل — حي قباء</div></div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="rev-text">طلبت منهم سواتر خشب للاستراحة، جابوا أكثر من تصميم وخلوني أختار. التركيب تم في يومين بس والشكل النهائي فخم جداً، الله يجزاهم خير.</p>
+        <div class="rev-meta">
+          <div class="rev-avatar a2">س</div>
+          <div><div class="rev-name">سعود الحربي</div><div class="rev-role">صاحب استراحة — شرق المدينة</div></div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="rev-text">تعاملت معهم لتركيب عشب صناعي بحديقة الفيلا، النتيجة فاقت التوقعات. السعر كان مناسب جداً مقارنة بعروض ثانية، والفريق محترف ونظيف بالعمل.</p>
+        <div class="rev-meta">
+          <div class="rev-avatar a3">م</div>
+          <div><div class="rev-name">منى الزهراني</div><div class="rev-role">عميلة — حي الملك فهد</div></div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="rev-text">تنفيذ احترافي لهنجر مستودع بمساحة 600 متر، التزموا بالوقت والميزانية المتفق عليها بدون أي زيادات. تعامل راقي من البداية للتسليم. شركة موثوقة فعلاً.</p>
+        <div class="rev-meta">
+          <div class="rev-avatar a4">خ</div>
+          <div><div class="rev-name">خالد الرشيدي</div><div class="rev-role">مدير شركة مقاولات</div></div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="rev-text">برجولا خشبية بمواصفات ممتازة، الخامة قوية والتشطيب يدل على خبرة. حتى بعد سنة من التركيب لا توجد أي مشاكل. أشكرهم على الالتزام بالضمان.</p>
+        <div class="rev-meta">
+          <div class="rev-avatar a5">ع</div>
+          <div><div class="rev-name">عبدالله الشمري</div><div class="rev-role">عميل — حي العزيزية</div></div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="rev-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="rev-text">طلبنا منهم تركيب سقف متحرك للمطعم، التنفيذ كان دقيق جداً والمحرك يشتغل بسلاسة. صار عندنا مرونة مع تغيرات الجو وزاد إقبال الزبائن. تعامل راقي ومحترف.</p>
+        <div class="rev-meta">
+          <div class="rev-avatar a6">ف</div>
+          <div><div class="rev-name">فهد القرشي</div><div class="rev-role">صاحب مطعم — وسط المدينة</div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
