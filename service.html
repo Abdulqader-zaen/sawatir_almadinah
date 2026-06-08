@@ -83,19 +83,26 @@ section{padding:90px 0}
 
 /* Gallery / creativity */
 .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.gal-card{aspect-ratio:4/3;border-radius:18px;position:relative;overflow:hidden;cursor:pointer;transition:.4s var(--e);background:linear-gradient(135deg,var(--s),var(--p));display:flex;align-items:end;padding:24px;color:#fff}
-.gal-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.7))}
-.gal-card::after{content:"";position:absolute;inset:0;background-image:linear-gradient(135deg,transparent 49.5%,rgba(255,255,255,.08) 49.5%,rgba(255,255,255,.08) 50.5%,transparent 50.5%);background-size:40px 40px;opacity:.6}
-.gal-card svg{position:absolute;top:30px;right:30px;color:rgba(255,255,255,.4);width:60px;height:60px;transition:.4s}
-.gal-card:hover{transform:translateY(-6px);box-shadow:0 28px 60px -20px rgba(0,0,0,.4)}
-.gal-card:hover svg{color:var(--a);transform:rotate(-10deg) scale(1.1)}
-.gal-card.alt{background:linear-gradient(135deg,var(--g),var(--s))}
-.gal-card.alt2{background:linear-gradient(135deg,var(--a),#8B6914)}
-.gal-card.alt3{background:linear-gradient(135deg,var(--p),var(--a))}
-.gal-card.alt4{background:linear-gradient(135deg,#8B6914,var(--p))}
-.gal-card.alt5{background:linear-gradient(135deg,var(--s),var(--g))}
-.gal-card h4{position:relative;z-index:2;font-size:1.15rem;color:#fff}
-.gal-card span{position:relative;z-index:2;color:rgba(255,255,255,.8);font-size:.9rem;display:block;margin-top:4px}
+.gal-card{aspect-ratio:4/3;border-radius:18px;position:relative;overflow:hidden;cursor:pointer;transition:.5s var(--e);background:#111;display:flex;align-items:end;padding:22px;color:#fff}
+.gal-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--e)}
+.gal-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.78));z-index:1}
+.gal-card:hover{transform:translateY(-6px);box-shadow:0 28px 60px -15px rgba(0,0,0,.5)}
+.gal-card:hover img{transform:scale(1.07)}
+.gal-card-body{position:relative;z-index:2}
+.gal-card h4{font-size:1.05rem;color:#fff;margin-bottom:4px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.gal-card span{color:rgba(255,255,255,.85);font-size:.85rem;display:block;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.gal-card .gal-tag{display:inline-block;background:var(--a);color:var(--p);padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:700;margin-bottom:8px}
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex;flex-direction:column}
+.lightbox img{max-width:92vw;max-height:80vh;border-radius:12px;object-fit:contain}
+.lightbox-cap{color:rgba(255,255,255,.9);margin-top:16px;text-align:center;font-size:1rem;max-width:600px}
+.lightbox-close{position:absolute;top:20px;left:24px;background:rgba(255,255,255,.12);border:none;color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.6rem;display:flex;align-items:center;justify-content:center}
+.lightbox-close:hover{background:rgba(255,255,255,.25)}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;transition:.2s}
+.lightbox-nav:hover{background:var(--a);color:var(--p)}
+.lightbox-nav.prev{right:20px}
+.lightbox-nav.next{left:20px}
 
 /* CTA */
 .cta{background:linear-gradient(135deg,var(--a) 0%,#b8973f 100%);color:var(--p);text-align:center;padding:70px 30px;border-radius:30px;position:relative;overflow:hidden}
@@ -219,12 +226,21 @@ section{padding:90px 0}
 <section>
   <div class="container">
     <div class="sec-head">
-      <h2>إبداعاتنا</h2>
-      <p>نماذج من مشاريعنا المنفّذة بتصاميم عصرية ولمسات احترافية تليق بمكانك.</p>
+      <h2>إبداعاتنا في مظلات المدينة المنورة</h2>
+      <p>مشاريع منفّذة في أحياء المدينة المنورة — من قباء والعزيزية والروضة إلى الملك فهد والنخيل وطيبة وغيرها. كل مظلة تحمل بصمتنا.</p>
     </div>
     <div class="gal-grid" id="galGrid"></div>
   </div>
 </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-nav prev" onclick="lbNav(1)">&#8250;</button>
+  <button class="lightbox-nav next" onclick="lbNav(-1)">&#8249;</button>
+  <img id="lbImg" src="" alt="">
+  <p class="lightbox-cap" id="lbCap"></p>
+</div>
 
 <!-- CTA -->
 <section style="padding-top:0">
@@ -377,21 +393,147 @@ const SERVICES={
   }
 };
 
-const GALLERY=[
-  {t:'مشروع فيلا بالعقيق',d:'مظلة مدخل بتصميم هرمي'},
-  {t:'استراحة شرق المدينة',d:'سواتر خشب بارتفاع 3 أمتار'},
-  {t:'مدرسة أهلية',d:'مظلات ساحة بمساحة 800م²'},
-  {t:'مسجد الحي',d:'مظلة خارجية تستوعب 200 مصلي'},
-  {t:'مجمع تجاري',d:'مواقف سيارات مظللة بالكامل'},
-  {t:'فيلا قباء',d:'برجولا خشبية مع عشب صناعي'}
+// Gallery per service — mazallat uses real photos, others keep SVG placeholders
+const GALLERY_MAZALLAT=[
+  {
+    img:'images/mazallat/mazalla-sayara-qumashy-beige-hay-quba-almadinah-almunawara.jpg',
+    alt:'مظلة سيارة قماشية بيج بهيكل حديدي — حي قباء، المدينة المنورة',
+    tag:'مظلة قماشية',
+    t:'مظلة قماشية — حي قباء',
+    d:'مظلة قماشية بيج قوسية بهيكل حديدي متين، نُفّذت في حي قباء بالمدينة المنورة لحماية سيارة بيك أب من حرارة الصيف.'
+  },
+  {
+    img:'images/mazallat/mazalla-sayara-fakhira-led-khashab-almadinah-almunawara.jpg',
+    alt:'مظلة سيارة فاخرة بإضاءة LED وسقف خشبي — المدينة المنورة',
+    tag:'مظلة فاخرة',
+    t:'مظلة LED فاخرة — المدينة المنورة',
+    d:'تصميم راقٍ بسقف خشبي داخلي وإضاءة LED محيطية دافئة، يمنح مدخل الفيلا بريقاً استثنائياً ليلاً ونهاراً.'
+  },
+  {
+    img:'images/mazallat/mazalla-harami-led-thalath-sayarat-hay-alnakhil-almadinah.jpg',
+    alt:'مظلة هرمية مزدوجة بإضاءة LED لثلاث سيارات — حي النخيل، المدينة المنورة',
+    tag:'مظلة هرمية',
+    t:'مظلة هرمية بـ LED — حي النخيل',
+    d:'مظلة بتصميم هرمي مزدوج تستوعب ثلاث سيارات فاخرة، مزوّدة بإضاءة LED على الحواف وسقف بلاطة راقية — نُفّذت في حي النخيل.'
+  },
+  {
+    img:'images/mazallat/mazallat-mawaqef-mutaadida-hay-alaziziya-almadinah.jpg',
+    alt:'مظلات مواقف سيارات متعددة بتصميم حديث — حي العزيزية، المدينة المنورة',
+    tag:'مظلات متعددة',
+    t:'مظلات مواقف — حي العزيزية',
+    d:'منظومة مظلات مسطحة بلون داكن عصري تستوعب أسطولاً كاملاً من السيارات، مع فراغات لأشجار النخيل — حي العزيزية.'
+  },
+  {
+    img:'images/mazallat/mazalla-qumashy-mawaqef-tijari-hay-alnazhim-almadinah.jpg',
+    alt:'مظلة قماشية لموقف سيارات تجاري — المدينة المنورة',
+    tag:'موقف تجاري',
+    t:'مظلة موقف تجاري — المدينة المنورة',
+    d:'مظلات قماشية بأعمدة حديدية رمادية لتظليل موقف سيارات تجاري كبير، تصميم متين يتحمل حرارة الصيف الشديدة.'
+  },
+  {
+    img:'images/mazallat/mazalla-qumashy-abyad-villa-haditha-hay-alrawdha-almadinah.jpg',
+    alt:'مظلة قماشية بيضاء هرمية أمام فيلا حديثة — حي الروضة، المدينة المنورة',
+    tag:'مظلة فيلا',
+    t:'مظلة قماشية بيضاء — حي الروضة',
+    d:'مظلة قماشية بيضاء ناصعة بشكل هرمي أنيق، تنسجم مع تصميم الفيلا الحديثة وتُضفي إطلالة فاخرة في حي الروضة.'
+  },
+  {
+    img:'images/mazallat/mazalla-qumashy-ramadi-villa-hay-alsalam-almadinah.jpg',
+    alt:'مظلة قماشية رمادية لسيارة SUV — حي السلام، المدينة المنورة',
+    tag:'مظلة قماشية',
+    t:'مظلة قماشية رمادية — حي السلام',
+    d:'مظلة قماشية بلون رمادي فاتح عصري، صُوِّرت من زاوية علوية لتظهر الإتقان في التركيب وملاءمتها لتصميم الفيلا — حي السلام.'
+  },
+  {
+    img:'images/mazallat/mazalla-shatiti-tawila-mabna-tijari-almadinah-almunawara.jpg',
+    alt:'مظلة شريطية طولية لجانب مبنى تجاري — المدينة المنورة',
+    tag:'مظلة شريطية',
+    t:'مظلة شريطية طولية — وسط المدينة',
+    d:'مظلة قماشية ممتدة بشكل شريطي طولي على جانب مبنى، توفر تظليلاً كاملاً لمواقف السيارات المتتالية — من أعمالنا بوسط المدينة المنورة.'
+  },
+  {
+    img:'images/mazallat/mazallatain-qumashy-beige-bait-saudi-hay-aljamiaa-almadinah.jpg',
+    alt:'مظلتان قماشيتان بيج لمنزل سعودي — حي الجامعة، المدينة المنورة',
+    tag:'مظلتان',
+    t:'مظلتان قماشيتان — حي الجامعة',
+    d:'مظلتان قماشيتان بيج بهياكل حديدية داكنة، تستوعبان سيارتين أمام منزل سعودي كلاسيكي محاط بالنخيل — حي الجامعة.'
+  },
+  {
+    img:'images/mazallat/tasmiim-mazalla-led-fakhir-khashab-hay-alaqeeq-almadinah.jpg',
+    alt:'تصميم مظلة سيارة فاخرة بسقف خشبي وإضاءة LED — حي العقيق، المدينة المنورة',
+    tag:'تصميم فاخر',
+    t:'تصميم LED فاخر — حي العقيق',
+    d:'رندر تصميم مظلة سيارة بسقف خشبي بني دافئ وإضاءة LED محيطية، يصلح لمداخل الفلل الراقية في أحياء كالعقيق وقباء والنخيل.'
+  },
+  {
+    img:'images/mazallat/mazalla-qumashy-zakhrafy-islami-qasr-almadinah-almunawara.jpg',
+    alt:'مظلة قماشية بزخرفة إسلامية أمام قصر — المدينة المنورة',
+    tag:'زخرفة إسلامية',
+    t:'مظلة بزخرفة إسلامية — المدينة المنورة',
+    d:'مظلة قماشية قوسية واسعة بهيكل حديدي مزيّن بزخارف إسلامية راقية على الأعمدة، تعكس أصالة العمارة السعودية.'
+  },
+  {
+    img:'images/mazallat/mazalla-qumashy-amoud-wahid-zakhrafy-hay-qiblatain-almadinah.jpg',
+    alt:'مظلة قماشية بعمود واحد وزخرفة إسلامية — حي القبلتين، المدينة المنورة',
+    tag:'عمود واحد',
+    t:'مظلة عمود واحد — حي القبلتين',
+    d:'مظلة قماشية بيج بتصميم قوسي مميز يرتكز على عمود واحد مزخرف بنقوش إسلامية جميلة، تناسب المداخل الضيقة والفلل.'
+  }
 ];
+
+const GALLERY_DEFAULT=[
+  {t:'مشروع فيلا بالعقيق',d:'تظليل متكامل حسب الطلب'},
+  {t:'استراحة شرق المدينة',d:'تنفيذ احترافي بمواد عالية الجودة'},
+  {t:'مدرسة أهلية',d:'مساحات كبيرة بضمان 10 سنوات'},
+  {t:'مجمع تجاري',d:'تصاميم عصرية تناسب كل مكان'},
+  {t:'فيلا حي الروضة',d:'تسليم في المواعيد المتفق عليها'},
+  {t:'موقف سيارات',d:'أسعار منافسة وجودة لا تُضاهى'}
+];
+
+// Lightbox
+let lbIndex=0;
+let lbItems=[];
+function openLightbox(i){
+  lbIndex=i;
+  document.getElementById('lbImg').src=lbItems[i].img;
+  document.getElementById('lbImg').alt=lbItems[i].alt;
+  document.getElementById('lbCap').textContent=lbItems[i].d;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function lbNav(dir){
+  lbIndex=(lbIndex+dir+lbItems.length)%lbItems.length;
+  document.getElementById('lbImg').src=lbItems[lbIndex].img;
+  document.getElementById('lbImg').alt=lbItems[lbIndex].alt;
+  document.getElementById('lbCap').textContent=lbItems[lbIndex].d;
+}
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')closeLightbox()});
+document.addEventListener('keydown',e=>{
+  const lb=document.getElementById('lightbox');
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='ArrowRight')lbNav(1);
+  if(e.key==='ArrowLeft')lbNav(-1);
+  if(e.key==='Escape')closeLightbox();
+});
 
 const params=new URLSearchParams(location.search);
 const key=params.get('s')||'mazallat';
 const s=SERVICES[key]||SERVICES.mazallat;
 
-document.getElementById('pageTitle').textContent=s.title+' | مؤسسة سواتر المدينة';
-document.getElementById('pageDesc').setAttribute('content',s.lead);
+// SEO: update page meta for mazallat specifically
+if(key==='mazallat'){
+  document.getElementById('pageTitle').textContent='مظلات المدينة المنورة | سواتر المدينة — تركيب وتصميم مظلات';
+  document.querySelector('meta[name="description"]').setAttribute('content',
+    'مظلات المدينة المنورة — مؤسسة سواتر المدينة متخصصة في تركيب مظلات السيارات والمواقف والمداخل في جميع أحياء المدينة: قباء، العزيزية، الروضة، النخيل، الجامعة، السلام، العقيق، القبلتين، طيبة، المبعوث، الشيخ، الملك فهد وغيرها. ضمان 10 سنوات.');
+}else{
+  document.getElementById('pageTitle').textContent=s.title+' | مؤسسة سواتر المدينة';
+  document.getElementById('pageDesc').setAttribute('content',s.lead);
+}
+
 document.getElementById('crumbName').textContent=s.title;
 document.getElementById('svcTitle').innerHTML=`<span>${s.title}</span>`;
 document.getElementById('svcLead').textContent=s.lead;
@@ -406,16 +548,31 @@ document.getElementById('featGrid').innerHTML=s.feats.map(f=>`
   </div>
 `).join('');
 
-const altClasses=['','alt','alt2','alt3','alt4','alt5'];
-document.getElementById('galGrid').innerHTML=GALLERY.map((g,i)=>`
-  <div class="gal-card ${altClasses[i%6]}">
-    ${ICONS[key]||ICONS.mazallat}
-    <div>
-      <h4>${g.t}</h4>
-      <span>${g.d}</span>
+// Build gallery
+if(key==='mazallat'){
+  lbItems=GALLERY_MAZALLAT;
+  document.getElementById('galGrid').innerHTML=GALLERY_MAZALLAT.map((g,i)=>`
+    <div class="gal-card" onclick="openLightbox(${i})" role="button" tabindex="0"
+         aria-label="${g.alt}">
+      <img src="${g.img}" alt="${g.alt}" loading="lazy">
+      <div class="gal-card-body">
+        <span class="gal-tag">${g.tag}</span>
+        <h4>${g.t}</h4>
+        <span>${g.d.slice(0,80)}…</span>
+      </div>
     </div>
-  </div>
-`).join('');
+  `).join('');
+}else{
+  document.getElementById('galGrid').innerHTML=GALLERY_DEFAULT.map((g,i)=>`
+    <div class="gal-card" style="background:linear-gradient(135deg,var(--s),var(--p))">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.3">${ICONS[key]||ICONS.mazallat}</div>
+      <div class="gal-card-body" style="position:relative;z-index:2">
+        <h4>${g.t}</h4>
+        <span>${g.d}</span>
+      </div>
+    </div>
+  `).join('');
+}
 </script>
 </body>
 </html>
