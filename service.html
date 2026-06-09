@@ -808,6 +808,44 @@ const GALLERY_SHABAK=[
   }
 ];
 
+const GALLERY_ROOF=[
+  {
+    vid:'videos/saqf-mutaharrik-iftah-ighlaq-almadinah-almunawara-1.mp4',
+    alt:'سقف متحرك يفتح ويُغلق كهربائياً — المدينة المنورة',
+    tag:'سقف متحرك',
+    t:'سقف متحرك — فتح وإغلاق كهربائي',
+    d:'سقف متحرك بمحرك كهربائي يفتح ويُغلق بضغطة زر، مثالي للاستراحات والمطاعم في المدينة المنورة وينبع.'
+  },
+  {
+    vid:'videos/saqf-mutaharrik-kahrabai-istraha-yanbu-almadinah-2.mp4',
+    alt:'سقف متحرك كهربائي لاستراحة فاخرة — ينبع والمدينة المنورة',
+    tag:'سقف استراحة',
+    t:'سقف متحرك استراحة فاخرة — ينبع والمدينة المنورة',
+    d:'سقف متحرك فاخر لاستراحة، يفتح لاستقبال النسيم ويُغلق لتوفير الحماية من الشمس والأمطار — ينبع والمدينة المنورة.'
+  },
+  {
+    vid:'videos/saqf-mutaharrik-matbakh-khariji-almadinah-3.mp4',
+    alt:'سقف متحرك لمطبخ ومنطقة خارجية — المدينة المنورة',
+    tag:'سقف مطبخ خارجي',
+    t:'سقف متحرك للمناطق الخارجية — المدينة المنورة',
+    d:'سقف متحرك يُغطي المنطقة الخارجية للمطبخ والجلسات، يمنح مرونة كاملة في التحكم بالتهوية والتظليل.'
+  },
+  {
+    vid:'videos/saqf-mutaharrik-fakhir-villa-almadinah-almunawara-4.mp4',
+    alt:'سقف متحرك فاخر لفيلا — المدينة المنورة',
+    tag:'سقف فيلا فاخر',
+    t:'سقف متحرك فاخر لفيلا — المدينة المنورة',
+    d:'سقف متحرك فاخر مصمم خصيصاً لفيلا راقية، يجمع بين الجمال المعماري والوظيفة العملية في المدينة المنورة.'
+  },
+  {
+    vid:'videos/saqf-mutaharrik-markaz-tijari-yanbu-almadinah-5.mp4',
+    alt:'سقف متحرك لمركز تجاري — ينبع والمدينة المنورة',
+    tag:'سقف تجاري',
+    t:'سقف متحرك تجاري — ينبع والمدينة المنورة',
+    d:'سقف متحرك لمركز تجاري ومطعم، يستجيب لتغيرات الطقس فوراً ويزيد من إقبال العملاء — ينبع والمدينة المنورة.'
+  }
+];
+
 const GALLERY_DEFAULT=[
   {t:'مشروع فيلا بالعقيق',d:'تنفيذ احترافي بمواد عالية الجودة'},
   {t:'استراحة المدينة',d:'تصاميم عصرية تناسب كل مكان'},
@@ -859,6 +897,10 @@ if(key==='mazallat'){
   document.getElementById('pageTitle').textContent='سواتر المدينة المنورة | سواتر حديد وخشب وPVC — تركيب وتصميم';
   document.querySelector('meta[name="description"]').setAttribute('content',
     'سواتر المدينة المنورة — مؤسسة سواتر المدينة متخصصة في تركيب سواتر الحديد والخشب وWPC لتوفير الخصوصية في جميع أحياء المدينة: قباء، العزيزية، الروضة، النخيل، السلام، العقيق، القبلتين، الناظم، الجامعة، طيبة وغيرها. ضمان 10 سنوات.');
+}else if(key==='roof'){
+  document.getElementById('pageTitle').textContent='أسقف متحركة المدينة المنورة وينبع | تركيب سقف متحرك كهربائي — سواتر المدينة';
+  document.querySelector('meta[name="description"]').setAttribute('content',
+    'أسقف متحركة المدينة المنورة وينبع — سواتر المدينة متخصصون في تركيب الأسقف المتحركة الكهربائية للاستراحات والمطاعم والفلل. سقف يفتح ويُغلق بضغطة زر في قباء، الروضة، النخيل، العزيزية، السلام، الجامعة، العقيق، ينبع، ينبع الصناعية وجميع أحياء المدينة المنورة. ضمان 5 سنوات على المحرك.');
 }else if(key==='shabak'){
   document.getElementById('pageTitle').textContent='شبك أسلاك المدينة المنورة وينبع | تركيب سياج وتسوير أراضي — سواتر المدينة';
   document.querySelector('meta[name="description"]').setAttribute('content',
@@ -891,7 +933,7 @@ document.getElementById('featGrid').innerHTML=s.feats.map(f=>`
 `).join('');
 
 // Build gallery — real photos for mazallat & sawater, SVG placeholders for others
-const REAL_GALLERIES={mazallat:GALLERY_MAZALLAT, sawater:GALLERY_SAWATER, hangars:GALLERY_HANGARS, grass:GALLERY_GRASS, shabak:GALLERY_SHABAK};
+const REAL_GALLERIES={mazallat:GALLERY_MAZALLAT, sawater:GALLERY_SAWATER, hangars:GALLERY_HANGARS, grass:GALLERY_GRASS, shabak:GALLERY_SHABAK, roof:GALLERY_ROOF};
 const realGallery=REAL_GALLERIES[key];
 
 // Update section heading for sawater
@@ -900,6 +942,11 @@ if(key==='sawater'){
   if(secH2) secH2.textContent='إبداعاتنا في سواتر المدينة المنورة';
   const secP=document.querySelector('#galGrid')?.closest('section')?.querySelector('p');
   if(secP) secP.textContent='مشاريع سواتر منفّذة في أحياء المدينة المنورة — من قباء والروضة والنخيل إلى العزيزية والسلام والعقيق والقبلتين وغيرها.';
+}else if(key==='roof'){
+  const secH2=document.querySelector('#galGrid')?.closest('section')?.querySelector('h2');
+  if(secH2) secH2.textContent='فيديوهات أسقفنا المتحركة — المدينة المنورة وينبع';
+  const secP=document.querySelector('#galGrid')?.closest('section')?.querySelector('p');
+  if(secP) secP.textContent='شاهد أسقفنا المتحركة تعمل مباشرة — فيديوهات حقيقية من مشاريع منفّذة في المدينة المنورة وينبع. اضغط لتشغيل أي فيديو.';
 }else if(key==='shabak'){
   const secH2=document.querySelector('#galGrid')?.closest('section')?.querySelector('h2');
   if(secH2) secH2.textContent='إبداعاتنا في شبك الأسلاك — المدينة المنورة وينبع';
@@ -919,6 +966,25 @@ if(key==='sawater'){
 
 if(realGallery){
   lbItems=realGallery;
+  // Check if this is a video gallery
+  const isVideoGallery=realGallery[0]&&realGallery[0].vid;
+  if(isVideoGallery){
+    document.getElementById('galGrid').innerHTML=realGallery.map((g,i)=>`
+      <div class="gal-card" style="cursor:pointer" onclick="this.querySelector('video').paused?this.querySelector('video').play():this.querySelector('video').pause()" aria-label="${g.alt}">
+        <video src="${g.vid}" muted playsinline preload="metadata" loop
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease">
+        </video>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(201,168,76,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:3;transition:.3s" class="play-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color:#1A1A2E;margin-right:-2px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="gal-card-body" style="position:relative;z-index:2">
+          <span class="gal-tag">${g.tag}</span>
+          <h4>${g.t}</h4>
+          <span>${g.d.slice(0,80)}…</span>
+        </div>
+      </div>
+    `).join('');
+  }else{
   document.getElementById('galGrid').innerHTML=realGallery.map((g,i)=>`
     <div class="gal-card" onclick="openLightbox(${i})" role="button" tabindex="0"
          aria-label="${g.alt}">
@@ -930,6 +996,7 @@ if(realGallery){
       </div>
     </div>
   `).join('');
+  }
 }else{
   document.getElementById('galGrid').innerHTML=GALLERY_DEFAULT.map((g)=>`
     <div class="gal-card" style="background:linear-gradient(135deg,var(--s),var(--p))">
