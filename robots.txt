@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-# خريطة الموقع — استبدل النطاق بنطاقك النهائي
-Sitemap: https://sawater-almadinah.com/sitemap.xml
+# خريطة الموقع
+Sitemap: https://madalatalmadinah.com/sitemap.xml

@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="google-site-verification" content="KYw28ybxrqdPz_loPzCLqDrz8o9C-0h-ya1qTBDbzSs" />
+<link rel="canonical" id="canonicalLink" href="https://madalatalmadinah.com/service.html" />
 <title id="pageTitle">تفاصيل الخدمة | مؤسسة سواتر المدينة</title>
 <meta name="description" id="pageDesc" content="تفاصيل خدماتنا في المدينة المنورة - مظلات، سواتر، هناجر، حدادة، عشب، برجولات، شبك، أسقف متحركة." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -887,6 +888,8 @@ document.addEventListener('keydown',e=>{
 });
 
 const key=location.hash.slice(1)||new URLSearchParams(location.search).get('s')||'mazallat';
+// تحديث الرابط الأساسي (canonical) حسب الخدمة لتحسين الأرشفة
+(function(){var c=document.getElementById('canonicalLink');if(c)c.href='https://madalatalmadinah.com/service.html#'+key;})();
 const s=SERVICES[key]||SERVICES.mazallat;
 
 // SEO: update page meta per service
