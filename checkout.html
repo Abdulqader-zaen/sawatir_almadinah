@@ -83,19 +83,25 @@ footer{text-align:center;padding:24px;color:#888;font-size:.85rem;margin-top:aut
 
 <script src="https://cdn.moyasar.com/mpf/1.14.0/moyasar.js"></script>
 <script>
-Moyasar.init({
-  element: '#moyasar-form',
-  amount: 100,
-  currency: 'SAR',
-  description: 'مضلة احترافية — مؤسسة سواتر المدينة',
-  publishable_api_key: 'pk_live_38hpc4q9zgvktK7hgQJA1jGJpewzL3eE2uAR4UBN',
-  callback_url: 'https://madalatalmadinah.com/checkout.html?status=paid',
-  methods: ['applepay', 'creditcard'],
-  apple_pay: {
-    country: 'SA',
-    label: 'مؤسسة سواتر المدينة',
-    validate_merchant_url: 'https://api.moyasar.com/v1/applepay/initiate',
-  },
+window.addEventListener('load', function() {
+  Moyasar.init({
+    element: '#moyasar-form',
+    amount: 100,
+    currency: 'SAR',
+    description: 'مضلة احترافية — مؤسسة سواتر المدينة',
+    publishable_api_key: 'pk_live_38hpc4q9zgvktK7hgQJA1jGJpewzL3eE2uAR4UBN',
+    callback_url: 'https://madalatalmadinah.com/checkout.html?status=paid',
+    methods: ['creditcard', 'applepay'],
+    apple_pay: {
+      country: 'SA',
+      label: 'مؤسسة سواتر المدينة',
+      validate_merchant_url: 'https://api.moyasar.com/v1/applepay/initiate',
+    },
+    on_initiating: function() {},
+    on_failure: function(error) {
+      console.error('Moyasar error:', error);
+    },
+  });
 });
 </script>
 </body>
