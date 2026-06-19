@@ -174,5 +174,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://madalatalmadinah.com/maqal-asqof-mutaharrika-mataem-almadinah.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://madalatalmadinah.com/maqal-mazallat-polycarbonate-almadinah.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://madalatalmadinah.com/maqal-malaaib-ushb-sinaayi-almadinah.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://madalatalmadinah.com/maqal-sianah-mazallat-almadinah.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://madalatalmadinah.com/maqal-tasyeer-mazarik-almadinah.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>
